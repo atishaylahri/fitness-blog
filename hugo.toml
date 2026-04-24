@@ -1,0 +1,49 @@
+baseURL = "https://atishaylahri.github.io/fitness-blog/"
+languageCode = "en-us"
+title = "Gym Stack"
+enableRobotsTXT = true
+paginate = 10
+
+[params]
+  description = "Expert reviews and buying guides for gym equipment, fitness gear, and workout essentials"
+  author = "Gym Stack"
+
+[menu]
+  [[menu.main]]
+    identifier = "home"
+    name = "Home"
+    url = "/"
+    weight = 1
+  [[menu.main]]
+    identifier = "about"
+    name = "About"
+    url = "/about/"
+    weight = 2
+  [[menu.main]]
+    identifier = "disclosure"
+    name = "Disclosure"
+    url = "/affiliate-disclosure/"
+    weight = 3
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[outputs]
+  home = ["HTML", "RSS"]
+  page = ["HTML"]
+  section = ["HTML", "RSS"]
+
+[[menu.footer]]
+  name = "Affiliate Disclosure"
+  url = "/affiliate-disclosure/"
+  weight = 1
+[[menu.footer]]
+  name = "Privacy Policy"
+  url = "/privacy/"
+  weight = 2
+[[menu.footer]]
+  name = "About"
+  url = "/about/"
+  weight = 3

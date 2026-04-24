@@ -1,0 +1,43 @@
+name: Generate Weekly Post
+
+on:
+  schedule:
+    - cron: "0 9 * * 0"
+  workflow_dispatch:
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install anthropic
+
+      - name: Generate post
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python generate_post.py
+
+      - name: Commit and push new post
+        run: |
+          git config user.name "Gym Stack Bot"
+          git config user.email "gymstack-bot@users.noreply.github.com"
+          git add content/posts/ topics.txt
+          if git diff --staged --quiet; then
+            echo "Nothing to commit — topics.txt may be empty."
+          else
+            git commit -m "Add weekly post $(date +%Y-%m-%d)"
+            git push
+          fi

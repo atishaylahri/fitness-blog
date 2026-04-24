@@ -1,0 +1,23 @@
+{{ define "main" }}
+<section class="hero">
+  <h1>Gym Stack</h1>
+  <p>Expert reviews and buying guides to help you build the perfect gym setup and crush your fitness goals.</p>
+</section>
+
+<section class="latest-posts">
+  <h2>Latest Reviews &amp; Guides</h2>
+  <div class="post-grid">
+    {{ range first 6 (where .Site.RegularPages "Type" "posts") }}
+    <article class="post-card">
+      <a href="{{ .Permalink }}"><h3>{{ .Title }}</h3></a>
+      <div class="post-meta">
+        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+      </div>
+      <p>{{ .Params.excerpt | default .Summary }}</p>
+      <a href="{{ .Permalink }}" class="read-more">Read More &rarr;</a>
+    </article>
+    {{ end }}
+  </div>
+  {{ with .Site.GetPage "section" "posts" }}<a href="{{ .Permalink }}" class="view-all">View All Articles &rarr;</a>{{ end }}
+</section>
+{{ end }}

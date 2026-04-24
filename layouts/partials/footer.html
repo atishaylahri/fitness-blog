@@ -1,0 +1,9 @@
+<footer class="site-footer">
+  <div class="container">
+    <p>&copy; {{ now.Format "2006" }} {{ .Site.Title }}. All rights reserved.</p>
+    <p class="footer-links">
+      {{ range .Site.Menus.footer }}<a href="{{ .URL }}">{{ .Name }}</a>{{ if not (eq .Weight 3) }} &middot; {{ end }}{{ end }}
+    </p>
+    <p class="footer-disclaimer">As an Amazon Associate, we earn from qualifying purchases at no extra cost to you.</p>
+  </div>
+</footer>

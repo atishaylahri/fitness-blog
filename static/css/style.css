@@ -1,0 +1,204 @@
+/* ── Reset ─────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 18px;
+  line-height: 1.75;
+  color: #1a1a1a;
+  background: #fff;
+}
+
+a { color: #1a6b3a; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ── Layout ────────────────────────────────────────────── */
+.container { max-width: 860px; margin: 0 auto; padding: 0 20px; }
+.main-content { padding: 40px 0; min-height: calc(100vh - 220px); }
+
+/* ── Header ────────────────────────────────────────────── */
+.site-header { background: #1a6b3a; padding: 16px 0; }
+.site-header .container { display: flex; justify-content: space-between; align-items: center; }
+
+.site-logo {
+  color: #fff;
+  font-size: 1.4rem;
+  font-weight: bold;
+  letter-spacing: -0.5px;
+}
+.site-logo:hover { text-decoration: none; opacity: 0.9; }
+
+.main-nav a {
+  color: rgba(255,255,255,0.85);
+  margin-left: 24px;
+  font-size: 0.88rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+.main-nav a:hover, .main-nav a.active { color: #fff; text-decoration: none; }
+
+/* ── Hero ──────────────────────────────────────────────── */
+.hero {
+  text-align: center;
+  padding: 64px 0 48px;
+  border-bottom: 1px solid #e8e8e8;
+  margin-bottom: 48px;
+}
+.hero h1 { font-size: 2.4rem; margin-bottom: 14px; }
+.hero p {
+  font-size: 1.1rem;
+  color: #555;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* ── Post Grid ─────────────────────────────────────────── */
+.post-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: 28px;
+  margin: 24px 0;
+}
+
+.post-card {
+  border: 1px solid #e8e8e8;
+  border-radius: 8px;
+  padding: 24px;
+  transition: box-shadow 0.2s;
+}
+.post-card:hover { box-shadow: 0 4px 18px rgba(0,0,0,0.09); }
+
+.post-card h2, .post-card h3 {
+  font-size: 1.05rem;
+  line-height: 1.4;
+  margin-bottom: 8px;
+}
+.post-card h2 a, .post-card h3 a { color: #1a1a1a; }
+.post-card h2 a:hover, .post-card h3 a:hover { color: #1a6b3a; text-decoration: none; }
+
+.post-meta {
+  font-size: 0.8rem;
+  color: #999;
+  margin-bottom: 12px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.post-card p { font-size: 0.93rem; color: #444; margin-bottom: 16px; }
+
+.read-more {
+  font-size: 0.88rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 600;
+  color: #1a6b3a;
+}
+
+/* ── Section headings ──────────────────────────────────── */
+.latest-posts h2, .list-page h1 {
+  font-size: 1.6rem;
+  margin-bottom: 6px;
+}
+
+.view-all {
+  display: inline-block;
+  margin-top: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+/* ── Single Post ───────────────────────────────────────── */
+.post-header {
+  margin-bottom: 36px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid #e8e8e8;
+}
+.post-header h1 { font-size: 2rem; line-height: 1.3; margin-bottom: 16px; }
+
+.affiliate-notice {
+  font-size: 0.83rem;
+  color: #999;
+  margin-top: 14px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+.tag {
+  background: #eef7f1;
+  color: #1a6b3a;
+  padding: 3px 12px;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* ── Post Content ──────────────────────────────────────── */
+.post-content h2 {
+  font-size: 1.5rem;
+  margin: 40px 0 16px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #e8e8e8;
+}
+.post-content h3 { font-size: 1.2rem; margin: 28px 0 12px; }
+.post-content p  { margin-bottom: 22px; }
+
+.post-content ul, .post-content ol { margin: 0 0 22px 26px; }
+.post-content li { margin-bottom: 6px; }
+
+.post-content blockquote {
+  border-left: 4px solid #1a6b3a;
+  padding: 12px 20px;
+  background: #f4faf6;
+  margin: 28px 0;
+  color: #444;
+  font-style: italic;
+}
+
+/* Amazon CTA button */
+.post-content a[href*="amazon.com"] {
+  display: inline-block;
+  background: #FF9900;
+  color: #fff !important;
+  padding: 9px 20px;
+  border-radius: 5px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin: 6px 0 16px;
+  text-decoration: none !important;
+}
+.post-content a[href*="amazon.com"]:hover { background: #e08800; }
+
+/* ── Hero Image ────────────────────────────────────────── */
+.post-hero-image {
+  margin: 2rem 0;
+  text-align: center;
+}
+
+.post-hero-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* ── Footer ────────────────────────────────────────────── */
+.site-footer {
+  background: #111;
+  color: #888;
+  padding: 36px 0;
+  margin-top: 64px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 0.85rem;
+  text-align: center;
+}
+.site-footer p { margin-bottom: 8px; }
+.site-footer a { color: #aaa; text-decoration: underline; }
+.site-footer a:hover { color: #fff; }
+.footer-disclaimer { color: #555; font-size: 0.78rem; margin-top: 14px; }
+
+/* ── Responsive ────────────────────────────────────────── */
+@media (max-width: 620px) {
+  body { font-size: 16px; }
+  .hero h1 { font-size: 1.8rem; }
+  .post-grid { grid-template-columns: 1fr; }
+  .main-nav { display: none; }
+  .post-header h1 { font-size: 1.6rem; }
+}
